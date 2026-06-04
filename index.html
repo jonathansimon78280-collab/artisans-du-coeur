@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artisans du Cœur – Pour un logement digne</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rouge: #B22222;
+    --rouge-fonce: #7B1515;
+    --rouge-clair: #F5E6E6;
+    --or: #C8963C;
+    --or-clair: #FAF0DC;
+    --or-fonce: #8B6510;
+    --blanc: #FDFAF5;
+    --texte: #2A1A0A;
+    --texte-doux: #5C4030;
+    --gris-clair: #F2EDE6;
+    --ombre: rgba(100, 30, 10, 0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Lato', sans-serif;
+    background: var(--blanc);
+    color: var(--texte);
+    line-height: 1.7;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background: rgba(253, 250, 245, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(200, 150, 60, 0.25);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    height: 68px;
+  }
+
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+  }
+
+  .nav-logo-icon {
+    width: 40px; height: 40px;
+    background: var(--rouge);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--rouge-fonce);
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  .nav-logo-sub {
+    font-family: 'Lato', sans-serif;
+    font-size: 0.65rem;
+    color: var(--or);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+    display: block;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--texte-doux);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.85rem;
+    border-radius: 4px;
+    transition: color 0.2s, background 0.2s;
+  }
+
+  .nav-links a:hover {
+    color: var(--rouge);
+    background: var(--rouge-clair);
+  }
+
+  .nav-cta {
+    background: var(--rouge) !important;
+    color: var(--blanc) !important;
+    border-radius: 4px;
+    padding: 0.5rem 1.2rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover {
+    background: var(--rouge-fonce) !important;
+    color: var(--blanc) !important;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: var(--texte);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+
+  /* ── HERO ── */
+  #accueil {
+    min-height: 100vh;
+    background:
+      radial-gradient(ellipse at 70% 30%, rgba(200, 150, 60, 0.12) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(178, 34, 34, 0.08) 0%, transparent 50%),
+      var(--blanc);
+    display: flex;
+    align-items: center;
+    padding: 68px 2rem 4rem;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 2px;
+    background: var(--or);
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--texte);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--rouge);
+  }
+
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--texte-doux);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    font-weight: 300;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--rouge);
+    color: white;
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover {
+    background: var(--rouge-fonce);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--rouge);
+    padding: 0.85rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border: 2px solid var(--rouge);
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    display: inline-block;
+  }
+
+  .btn-secondary:hover {
+    background: var(--rouge-clair);
+    transform: translateY(-1px);
+  }
+
+  .hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-emblem {
+    width: 320px; height: 320px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .emblem-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid;
+  }
+
+  .emblem-ring-1 {
+    width: 320px; height: 320px;
+    border-color: rgba(200, 150, 60, 0.15);
+    animation: rotate-slow 30s linear infinite;
+  }
+
+  .emblem-ring-2 {
+    width: 260px; height: 260px;
+    border-color: rgba(178, 34, 34, 0.12);
+    animation: rotate-slow 20s linear infinite reverse;
+  }
+
+  .emblem-center {
+    width: 200px; height: 200px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 40px var(--ombre);
+    border: 3px solid rgba(200, 150, 60, 0.3);
+    gap: 0.25rem;
+  }
+
+  .emblem-heart {
+    font-size: 4.5rem;
+    line-height: 1;
+    filter: drop-shadow(0 2px 8px rgba(178,34,34,0.3));
+  }
+
+  .emblem-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.75rem;
+    color: var(--or-fonce);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-style: italic;
+  }
+
+  @keyframes rotate-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(200,150,60,0.2);
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--rouge);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--texte-doux);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 6rem 2rem;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--or);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 20px; height: 2px;
+    background: var(--or);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 700;
+    color: var(--texte);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--rouge);
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--texte-doux);
+    max-width: 620px;
+    margin-bottom: 3.5rem;
+    font-weight: 300;
+  }
+
+  /* ── MISSION ── */
+  #mission {
+    background: var(--gris-clair);
+  }
+
+  .mission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .mission-text p {
+    color: var(--texte-doux);
+    margin-bottom: 1.2rem;
+    font-size: 1.02rem;
+  }
+
+  .mission-text p strong {
+    color: var(--rouge);
+    font-weight: 700;
+  }
+
+  .mission-quote {
+    background: white;
+    border-left: 4px solid var(--or);
+    padding: 1.5rem 1.75rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 2rem;
+    box-shadow: 0 4px 20px var(--ombre);
+  }
+
+  .mission-quote p {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    color: var(--texte);
+    margin: 0 !important;
+  }
+
+  .valeurs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .valeur-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid rgba(200,150,60,0.2);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+
+  .valeur-card:hover {
+    box-shadow: 0 6px 24px var(--ombre);
+    transform: translateY(-2px);
+  }
+
+  .valeur-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .valeur-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--rouge-fonce);
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .valeur-desc {
+    font-size: 0.82rem;
+    color: var(--texte-doux);
+    line-height: 1.5;
+  }
+
+  /* ── FONCTIONNEMENT ── */
+  #fonctionnement {
+    background: white;
+  }
+
+  .etapes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+
+  .etapes-container::before {
+    content: '';
+    position: absolute;
+    left: 36px;
+    top: 36px;
+    bottom: 36px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--or) 0%, var(--rouge) 100%);
+    opacity: 0.3;
+  }
+
+  .etape {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    padding: 1.5rem 0;
+    position: relative;
+  }
+
+  .etape-numero {
+    width: 72px; height: 72px;
+    flex-shrink: 0;
+    background: white;
+    border: 2px solid var(--or);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--rouge);
+    z-index: 1;
+    box-shadow: 0 4px 16px var(--ombre);
+    background: var(--blanc);
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .etape:hover .etape-numero {
+    background: var(--rouge);
+    color: white;
+    border-color: var(--rouge);
+    transform: scale(1.05);
+  }
+
+  .etape-content {
+    flex: 1;
+    background: var(--gris-clair);
+    border-radius: 8px;
+    padding: 1.5rem 1.75rem;
+    margin-top: 8px;
+    border: 1px solid rgba(200,150,60,0.15);
+    transition: box-shadow 0.2s;
+  }
+
+  .etape:hover .etape-content {
+    box-shadow: 0 4px 20px var(--ombre);
+  }
+
+  .etape-title {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--rouge-fonce);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.5rem;
+  }
+
+  .etape-desc {
+    font-size: 0.95rem;
+    color: var(--texte-doux);
+  }
+
+  .etape-exemples {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    background: white;
+    border: 1px solid rgba(178,34,34,0.2);
+    color: var(--rouge-fonce);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    font-weight: 700;
+  }
+
+  /* ── BÉNÉFICIAIRES ── */
+  #beneficiaires {
+    background: var(--rouge-fonce);
+    color: white;
+  }
+
+  #beneficiaires .section-title {
+    color: white;
+  }
+
+  #beneficiaires .section-title em {
+    color: var(--or);
+  }
+
+  #beneficiaires .section-intro {
+    color: rgba(255,255,255,0.75);
+  }
+
+  #beneficiaires .section-eyebrow {
+    color: var(--or);
+  }
+
+  #beneficiaires .section-eyebrow::before {
+    background: var(--or);
+  }
+
+  .beneficiaires-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .beneficiaire-card {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 1.75rem 1.25rem;
+    text-align: center;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .beneficiaire-card:hover {
+    background: rgba(255,255,255,0.14);
+    transform: translateY(-3px);
+  }
+
+  .beneficiaire-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    display: block;
+  }
+
+  .beneficiaire-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: white;
+    margin-bottom: 0.4rem;
+  }
+
+  .beneficiaire-desc {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.65);
+    line-height: 1.5;
+  }
+
+  .travaux-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .travaux-item {
+    background: rgba(200,150,60,0.15);
+    border: 1px solid rgba(200,150,60,0.35);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: background 0.2s;
+  }
+
+  .travaux-item:hover {
+    background: rgba(200,150,60,0.25);
+  }
+
+  .travaux-icon {
+    font-size: 1.4rem;
+    flex-shrink: 0;
+  }
+
+  .travaux-name {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--or);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── ARTISANS ── */
+  #artisans {
+    background: var(--or-clair);
+  }
+
+  .artisans-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .artisans-avantages {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .avantage-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    border-radius: 8px;
+    padding: 1.25rem;
+    border: 1px solid rgba(200,150,60,0.25);
+    transition: box-shadow 0.2s;
+  }
+
+  .avantage-item:hover {
+    box-shadow: 0 4px 20px var(--ombre);
+  }
+
+  .avantage-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    width: 48px; height: 48px;
+    background: var(--rouge-clair);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .avantage-title {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--texte);
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .avantage-desc {
+    font-size: 0.87rem;
+    color: var(--texte-doux);
+    line-height: 1.5;
+  }
+
+  .artisans-form-box {
+    background: white;
+    border-radius: 12px;
+    padding: 2rem;
+    border: 1px solid rgba(200,150,60,0.3);
+    box-shadow: 0 8px 40px var(--ombre);
+  }
+
+  .form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: var(--rouge-fonce);
+    margin-bottom: 0.4rem;
+  }
+
+  .form-subtitle {
+    font-size: 0.85rem;
+    color: var(--texte-doux);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--texte-doux);
+    margin-bottom: 0.35rem;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid rgba(178,34,34,0.2);
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.92rem;
+    color: var(--texte);
+    background: var(--blanc);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--rouge);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+  }
+
+  .form-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background: var(--rouge);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover {
+    background: var(--rouge-fonce);
+    transform: translateY(-1px);
+  }
+
+  /* ── DONS ── */
+  #dons {
+    background: white;
+  }
+
+  .dons-intro-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .montants-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .montant-card {
+    background: var(--gris-clair);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 1.25rem 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .montant-card:hover, .montant-card.active {
+    border-color: var(--rouge);
+    background: var(--rouge-clair);
+  }
+
+  .montant-somme {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--rouge);
+    display: block;
+  }
+
+  .montant-label {
+    font-size: 0.72rem;
+    color: var(--texte-doux);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    margin-top: 0.15rem;
+    display: block;
+  }
+
+  .montant-impact {
+    font-size: 0.7rem;
+    color: var(--texte-doux);
+    margin-top: 0.4rem;
+    display: block;
+    font-style: italic;
+  }
+
+  .don-montant-libre {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    align-items: center;
+  }
+
+  .don-montant-libre input {
+    flex: 1;
+    padding: 0.65rem 0.9rem;
+    border: 1.5px solid rgba(178,34,34,0.2);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: 'Lato', sans-serif;
+    outline: none;
+    color: var(--texte);
+  }
+
+  .don-montant-libre input:focus {
+    border-color: var(--rouge);
+  }
+
+  .don-montant-libre .btn-primary {
+    white-space: nowrap;
+    padding: 0.65rem 1.5rem;
+    font-size: 0.85rem;
+  }
+
+  .recu-fiscal {
+    background: var(--or-clair);
+    border: 1px solid rgba(200,150,60,0.4);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.87rem;
+    color: var(--or-fonce);
+  }
+
+  .recu-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+  }
+
+  .dons-temoignage {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .temoignage-card {
+    background: var(--gris-clair);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 3px solid var(--rouge);
+    position: relative;
+  }
+
+  .temoignage-card::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    color: var(--rouge);
+    opacity: 0.15;
+    position: absolute;
+    top: 0.5rem; left: 1rem;
+    line-height: 1;
+  }
+
+  .temoignage-text {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--texte-doux);
+    margin-bottom: 0.75rem;
+    padding-top: 0.5rem;
+  }
+
+  .temoignage-auteur {
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--rouge-fonce);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--gris-clair);
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .contact-infos {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .contact-info-icon {
+    width: 44px; height: 44px;
+    background: white;
+    border: 1px solid rgba(200,150,60,0.3);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+
+  .contact-info-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--or-fonce);
+    font-weight: 700;
+    margin-bottom: 0.2rem;
+  }
+
+  .contact-info-value {
+    font-size: 0.95rem;
+    color: var(--texte-doux);
+  }
+
+  .contact-form {
+    background: white;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 8px 40px var(--ombre);
+    border: 1px solid rgba(200,150,60,0.2);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+  }
+
+  .form-success-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .form-success h3 {
+    font-family: 'Playfair Display', serif;
+    color: var(--rouge-fonce);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-success p {
+    color: var(--texte-doux);
+    font-size: 0.9rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--texte);
+    color: rgba(255,255,255,0.7);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-logo-area {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: white;
+    font-weight: 700;
+  }
+
+  .footer-logo-tagline {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.5);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 260px;
+  }
+
+  .footer-col-title {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--or);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-size: 0.87rem;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: var(--or);
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .footer-cross {
+    color: var(--or);
+    font-size: 1.1rem;
+  }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+
+    .hero-inner,
+    .mission-grid,
+    .artisans-grid,
+    .dons-intro-grid,
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-visual { order: -1; }
+    .hero-emblem { width: 220px; height: 220px; }
+    .emblem-ring-1 { width: 220px; height: 220px; }
+    .emblem-ring-2 { width: 180px; height: 180px; }
+    .emblem-center { width: 140px; height: 140px; }
+    .emblem-heart { font-size: 3rem; }
+
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .form-row { grid-template-columns: 1fr; }
+    .montants-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .valeurs-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    section { padding: 4rem 1.25rem; }
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-progress {
+    position: fixed;
+    top: 68px; left: 0;
+    height: 2px;
+    background: var(--rouge);
+    z-index: 999;
+    width: 0%;
+    transition: width 0.1s;
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-to-top {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    width: 44px; height: 44px;
+    background: var(--rouge);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+    box-shadow: 0 4px 16px var(--ombre);
+    z-index: 100;
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--rouge-fonce);
+  }
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#accueil" class="nav-logo">
+    <div class="nav-logo-icon">❤️</div>
+    <div class="nav-logo-text">
+      Artisans du Cœur
+      <span class="nav-logo-sub">Association loi 1901</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#mission">Mission</a></li>
+    <li><a href="#fonctionnement">Comment ça marche</a></li>
+    <li><a href="#beneficiaires">Bénéficiaires</a></li>
+    <li><a href="#artisans">Artisans</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#dons" class="nav-cta">Faire un don</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-inner">
+    <div class="hero-text fade-in">
+      <div class="hero-eyebrow">Association de solidarité</div>
+      <h1 class="hero-title">
+        Pour un logement<br><em>sûr et digne</em><br>pour tous
+      </h1>
+      <p class="hero-desc">
+        Artisans du Cœur mobilise artisans, donateurs et partenaires pour permettre aux personnes les plus vulnérables de vivre dans un foyer sain, sécurisé et digne.
+      </p>
+      <div class="hero-actions">
+        <a href="#dons" class="btn-primary">Soutenir l'association</a>
+        <a href="#fonctionnement" class="btn-secondary">Comment ça marche</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">1901</span>
+          <span class="stat-label">Association loi</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">100%</span>
+          <span class="stat-label">Transparent</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">♱</span>
+          <span class="stat-label">Charité en actes</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual fade-in" style="transition-delay: 0.2s">
+      <div class="hero-emblem">
+        <div class="emblem-ring emblem-ring-1"></div>
+        <div class="emblem-ring emblem-ring-2"></div>
+        <div class="emblem-center">
+          <div class="emblem-heart">❤️‍🔥</div>
+          <div class="emblem-text">Servir avec amour</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION -->
+<section id="mission">
+  <div class="section-inner">
+    <div class="mission-grid">
+      <div class="fade-in">
+        <div class="section-eyebrow">Notre raison d'être</div>
+        <h2 class="section-title">Une mission<br><em>concrète et urgente</em></h2>
+        <div class="mission-text">
+          <p>Inspirée du modèle des <strong>Restos du Cœur</strong>, Artisans du Cœur applique l'esprit de solidarité alimentaire au domaine du bâtiment et de l'habitat.</p>
+          <p>De nombreuses personnes vivent dans des logements dangereux, insalubres ou inadaptés — non par choix, mais faute de moyens pour financer les travaux indispensables.</p>
+          <p>Notre rôle : <strong>faire le lien</strong> entre ceux qui ont besoin d'aide, ceux qui ont le savoir-faire, et ceux qui souhaitent donner du sens à leur engagement.</p>
+          <p>Sans discrimination de conviction, d'origine ou de situation : <strong>toute personne dans le besoin</strong> peut bénéficier de nos services.</p>
+        </div>
+        <div class="mission-quote">
+          <p>"Artisans du Cœur — une association de solidarité dans le bâtiment qui mobilise artisans, donateurs et partenaires afin de permettre aux personnes les plus vulnérables de vivre dans un logement sûr, sain et digne."</p>
+        </div>
+      </div>
+      <div class="fade-in" style="transition-delay: 0.15s">
+        <div class="section-eyebrow" style="margin-bottom: 1.5rem">Nos valeurs</div>
+        <div class="valeurs-grid">
+          <div class="valeur-card">
+            <div class="valeur-icon">🤝</div>
+            <div>
+              <div class="valeur-name">Solidarité</div>
+              <div class="valeur-desc">Agir ensemble pour les plus vulnérables</div>
+            </div>
+          </div>
+          <div class="valeur-card">
+            <div class="valeur-icon">🏠</div>
+            <div>
+              <div class="valeur-name">Dignité</div>
+              <div class="valeur-desc">Chaque personne mérite un foyer digne</div>
+            </div>
+          </div>
+          <div class="valeur-card">
+            <div class="valeur-icon">🔨</div>
+            <div>
+              <div class="valeur-name">Engagement</div>
+              <div class="valeur-desc">Des actes concrets, pas des promesses</div>
+            </div>
+          </div>
+          <div class="valeur-card">
+            <div class="valeur-icon">⭐</div>
+            <div>
+              <div class="valeur-name">Excellence</div>
+              <div class="valeur-desc">Des travaux réalisés avec professionnalisme</div>
+            </div>
+          </div>
+          <div class="valeur-card">
+            <div class="valeur-icon">📊</div>
+            <div>
+              <div class="valeur-name">Transparence</div>
+              <div class="valeur-desc">Chaque euro tracé et justifié</div>
+            </div>
+          </div>
+          <div class="valeur-card">
+            <div class="valeur-icon">✝️</div>
+            <div>
+              <div class="valeur-name">Foi en actes</div>
+              <div class="valeur-desc">L'amour du prochain comme moteur discret</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FONCTIONNEMENT -->
+<section id="fonctionnement">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align: center; max-width: 580px; margin: 0 auto 3.5rem;">
+      <div class="section-eyebrow" style="justify-content: center">Le processus</div>
+      <h2 class="section-title">Comment nous <em>intervenons</em></h2>
+      <p class="section-intro" style="margin: 0 auto">De la demande d'aide à la remise des clés, chaque étape est encadrée pour garantir efficacité et dignité.</p>
+    </div>
+    <div class="etapes-container">
+      <div class="etape fade-in">
+        <div class="etape-numero">01</div>
+        <div class="etape-content">
+          <div class="etape-title">Identification du besoin</div>
+          <div class="etape-desc">Un bénéficiaire, un travailleur social ou un proche signale une situation. Notre équipe est à l'écoute.</div>
+          <div class="etape-exemples">
+            <span class="tag">Toiture qui fuit</span>
+            <span class="tag">Chauffage défaillant</span>
+            <span class="tag">Électricité dangereuse</span>
+            <span class="tag">Logement insalubre</span>
+          </div>
+        </div>
+      </div>
+      <div class="etape fade-in">
+        <div class="etape-numero">02</div>
+        <div class="etape-content">
+          <div class="etape-title">Étude du dossier</div>
+          <div class="etape-desc">Analyse de la situation sociale, de l'urgence, du coût estimé et des aides existantes pour prioriser et orienter au mieux.</div>
+          <div class="etape-exemples">
+            <span class="tag">Visite sur place</span>
+            <span class="tag">Devis artisan</span>
+            <span class="tag">Aides publiques</span>
+          </div>
+        </div>
+      </div>
+      <div class="etape fade-in">
+        <div class="etape-numero">03</div>
+        <div class="etape-content">
+          <div class="etape-title">Recherche de financement</div>
+          <div class="etape-desc">Mobilisation des dons, mécénat d'entreprise, fondations, subventions et, si nécessaire, cagnotte dédiée au projet.</div>
+          <div class="etape-exemples">
+            <span class="tag">Dons particuliers</span>
+            <span class="tag">Mécénat</span>
+            <span class="tag">Subventions</span>
+            <span class="tag">Fondations</span>
+          </div>
+        </div>
+      </div>
+      <div class="etape fade-in">
+        <div class="etape-numero">04</div>
+        <div class="etape-content">
+          <div class="etape-title">Réalisation des travaux</div>
+          <div class="etape-desc">Les artisans partenaires interviennent à prix coûtant, offrent une partie de leur temps ou s'engagent bénévolement selon la situation.</div>
+          <div class="etape-exemples">
+            <span class="tag">Prix coûtant</span>
+            <span class="tag">Don de temps</span>
+            <span class="tag">Bénévolat</span>
+            <span class="tag">Don en nature</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BÉNÉFICIAIRES -->
+<section id="beneficiaires">
+  <div class="section-inner">
+    <div class="fade-in" style="text-align: center; max-width: 580px; margin: 0 auto 3.5rem;">
+      <div class="section-eyebrow" style="justify-content: center">Qui peut bénéficier de notre aide</div>
+      <h2 class="section-title">Nous aidons <em>toute personne</em><br>dans le besoin</h2>
+      <p class="section-intro" style="margin: 0 auto; color: rgba(255,255,255,0.7)">Sans discrimination de religion, d'origine ou de conviction. La seule condition : en avoir besoin.</p>
+    </div>
+    <div class="beneficiaires-grid fade-in">
+      <div class="beneficiaire-card">
+        <span class="beneficiaire-icon">👴</span>
+        <div class="beneficiaire-name">Personnes âgées</div>
+        <div class="beneficiaire-desc">Adaptation PMR, sécurisation, confort thermique</div>
+      </div>
+      <div class="beneficiaire-card">
+        <span class="beneficiaire-icon">♿</span>
+        <div class="beneficiaire-name">Personnes handicapées</div>
+        <div class="beneficiaire-desc">Aménagements spécifiques, accessibilité</div>
+      </div>
+      <div class="beneficiaire-card">
+        <span class="beneficiaire-icon">👨‍👩‍👧</span>
+        <div class="beneficiaire-name">Familles modestes</div>
+        <div class="beneficiaire-desc">Travaux d'urgence, rénovation essentielle</div>
+      </div>
+      <div class="beneficiaire-card">
+        <span class="beneficiaire-icon">💔</span>
+        <div class="beneficiaire-name">Personnes isolées</div>
+        <div class="beneficiaire-desc">Situations de précarité ou de rupture</div>
+      </div>
+      <div class="beneficiaire-card">
+        <span class="beneficiaire-icon">🏥</span>
+        <div class="beneficiaire-name">Malades & aidants</div>
+        <div class="beneficiaire-desc">Logements à adapter pour le retour à domicile</div>
+      </div>
+    </div>
+
+    <div class="fade-in" style="margin-top: 3rem">
+      <div style="text-align: center; margin-bottom: 1.5rem;">
+        <div class="section-eyebrow" style="justify-content: center; color: var(--or)">Types de travaux pris en charge</div>
+      </div>
+      <div class="travaux-grid">
+        <div class="travaux-item">
+          <span class="travaux-icon">🏚️</span>
+          <span class="travaux-name">Toiture</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">🔥</span>
+          <span class="travaux-name">Chauffage</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">⚡</span>
+          <span class="travaux-name">Électricité</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">🚿</span>
+          <span class="travaux-name">Plomberie</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">♿</span>
+          <span class="travaux-name">Adaptation PMR</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">🏠</span>
+          <span class="travaux-name">Insalubrité</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">🪟</span>
+          <span class="travaux-name">Isolation</span>
+        </div>
+        <div class="travaux-item">
+          <span class="travaux-icon">🔒</span>
+          <span class="travaux-name">Sécurisation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTISANS -->
+<section id="artisans">
+  <div class="section-inner">
+    <div class="artisans-grid">
+      <div class="fade-in">
+        <div class="section-eyebrow">Vous êtes artisan ?</div>
+        <h2 class="section-title">Donnez du sens<br>à <em>votre métier</em></h2>
+        <p class="section-intro">Rejoindre Artisans du Cœur, c'est mettre votre savoir-faire au service de ceux qui en ont le plus besoin, dans une démarche choisie et valorisée.</p>
+        <div class="artisans-avantages">
+          <div class="avantage-item">
+            <div class="avantage-icon">🏆</div>
+            <div>
+              <div class="avantage-title">Valorisation de votre engagement</div>
+              <div class="avantage-desc">Label partenaire, présence sur notre site, reconnaissance dans les médias locaux et auprès des institutionnels.</div>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">📋</div>
+            <div>
+              <div class="avantage-title">Flexibilité totale</div>
+              <div class="avantage-desc">Vous choisissez vos interventions, le niveau de don (temps, matériel, prix coûtant), sans engagement fixe.</div>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">💰</div>
+            <div>
+              <div class="avantage-title">Avantages fiscaux</div>
+              <div class="avantage-desc">Les dons en nature et en temps peuvent ouvrir droit à des réductions fiscales (rescrit fiscal en cours).</div>
+            </div>
+          </div>
+          <div class="avantage-item">
+            <div class="avantage-icon">❤️</div>
+            <div>
+              <div class="avantage-title">Une communauté de valeurs</div>
+              <div class="avantage-desc">Rejoindre un réseau d'artisans qui partagent le même sens de l'humain, de la dignité et du travail bien fait.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-in" style="transition-delay: 0.15s">
+        <div class="artisans-form-box">
+          <h3 class="form-title">Devenir artisan partenaire</h3>
+          <p class="form-subtitle">Laissez-nous vos coordonnées, nous vous recontactons rapidement.</p>
+          <div id="artisanFormContent">
+            <div class="form-group">
+              <label>Nom & Prénom</label>
+              <input type="text" placeholder="Jean Dupont">
+            </div>
+            <div class="form-group">
+              <label>Entreprise</label>
+              <input type="text" placeholder="Dupont Plomberie">
+            </div>
+            <div class="form-group">
+              <label>Corps de métier</label>
+              <select>
+                <option value="">Sélectionner...</option>
+                <option>Plombier</option>
+                <option>Électricien</option>
+                <option>Couvreur</option>
+                <option>Menuisier</option>
+                <option>Peintre</option>
+                <option>Chauffagiste</option>
+                <option>Maçon</option>
+                <option>Multi-services</option>
+                <option>Autre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Zone d'intervention</label>
+              <input type="text" placeholder="Ex : Obernai et 30 km alentour">
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="jean@dupont-plomberie.fr">
+            </div>
+            <div class="form-group">
+              <label>Message (optionnel)</label>
+              <textarea placeholder="Décrivez votre motivation ou ce que vous souhaitez apporter..."></textarea>
+            </div>
+            <button class="form-submit" onclick="submitArtisan()">Rejoindre le réseau →</button>
+          </div>
+          <div class="form-success" id="artisanSuccess">
+            <span class="form-success-icon">🙏</span>
+            <h3>Merci pour votre engagement !</h3>
+            <p>Nous avons bien reçu votre demande. Notre équipe vous contactera très prochainement.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONS -->
+<section id="dons">
+  <div class="section-inner">
+    <div class="dons-intro-grid">
+      <div class="fade-in">
+        <div class="section-eyebrow">Soutenir l'association</div>
+        <h2 class="section-title">Votre don <em>change<br>une vie</em></h2>
+        <p class="section-intro">Chaque contribution, quelle que soit sa taille, permet de financer un chantier concret et de transformer le quotidien d'une famille.</p>
+
+        <div class="montants-grid">
+          <div class="montant-card active" onclick="selectMontant(this, 20)">
+            <span class="montant-somme">20 €</span>
+            <span class="montant-label">Geste du cœur</span>
+            <span class="montant-impact">Après réduction fiscale : 6,80 €</span>
+          </div>
+          <div class="montant-card" onclick="selectMontant(this, 50)">
+            <span class="montant-somme">50 €</span>
+            <span class="montant-label">Solidaire</span>
+            <span class="montant-impact">Après réduction fiscale : 17 €</span>
+          </div>
+          <div class="montant-card" onclick="selectMontant(this, 100)">
+            <span class="montant-somme">100 €</span>
+            <span class="montant-label">Artisan du cœur</span>
+            <span class="montant-impact">Après réduction fiscale : 34 €</span>
+          </div>
+          <div class="montant-card" onclick="selectMontant(this, 250)">
+            <span class="montant-somme">250 €</span>
+            <span class="montant-label">Bâtisseur</span>
+            <span class="montant-impact">Après réduction fiscale : 85 €</span>
+          </div>
+          <div class="montant-card" onclick="selectMontant(this, 500)">
+            <span class="montant-somme">500 €</span>
+            <span class="montant-label">Fondateur</span>
+            <span class="montant-impact">Après réduction fiscale : 170 €</span>
+          </div>
+          <div class="montant-card" onclick="selectMontant(this, 0)">
+            <span class="montant-somme" style="font-size: 1.1rem; padding-top: 0.2rem">Libre</span>
+            <span class="montant-label">Votre choix</span>
+            <span class="montant-impact">À vous de décider</span>
+          </div>
+        </div>
+
+        <div class="don-montant-libre">
+          <input type="number" id="montantLibre" placeholder="Montant en €" min="1">
+          <a href="#" class="btn-primary" onclick="faireDon()">Faire un don →</a>
+        </div>
+
+        <div class="recu-fiscal">
+          <span class="recu-icon">📄</span>
+          <div>
+            <strong>Reçu fiscal</strong> — Un reçu vous sera délivré pour chaque don. En tant qu'association loi 1901, vos dons ouvrent droit à une réduction d'impôt de <strong>66 %</strong> du montant versé (dans la limite de 20 % de votre revenu imposable).
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in dons-temoignage" style="transition-delay: 0.15s">
+        <div style="margin-bottom: 1rem">
+          <div class="section-eyebrow">Ils témoignent</div>
+        </div>
+        <div class="temoignage-card">
+          <p class="temoignage-text">Grâce à Artisans du Cœur, ma toiture a été réparée avant l'hiver. Je n'aurais jamais pu financer ça seule. C'est un miracle pour moi.</p>
+          <div class="temoignage-auteur">Marie, 78 ans — Alsace</div>
+        </div>
+        <div class="temoignage-card">
+          <p class="temoignage-text">En tant que plombier, j'ai rejoint l'association il y a six mois. Voir le sourire des familles que j'aide, c'est la plus belle récompense de ma carrière.</p>
+          <div class="temoignage-auteur">Thierry, artisan plombier — Obernai</div>
+        </div>
+        <div class="temoignage-card">
+          <p class="temoignage-text">Notre entreprise est fière de soutenir Artisans du Cœur. C'est une cause locale, concrète, et l'impact est immédiatement visible. On continue.</p>
+          <div class="temoignage-auteur">Société Bâti-Sud, mécène</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="fade-in">
+        <div class="section-eyebrow">Nous écrire</div>
+        <h2 class="section-title">Contactez-<em>nous</em></h2>
+        <p class="section-intro">Une question, une situation à nous signaler, ou simplement envie d'en savoir plus ? Nous vous répondons dans les 48h.</p>
+        <div class="contact-infos">
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📍</div>
+            <div>
+              <div class="contact-info-label">Siège social</div>
+              <div class="contact-info-value">Obernai, Grand Est — France</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📧</div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">contact@artisansducoeur.fr</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">📞</div>
+            <div>
+              <div class="contact-info-label">Téléphone</div>
+              <div class="contact-info-value">À venir lors de l'ouverture officielle</div>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="contact-info-icon">🕐</div>
+            <div>
+              <div class="contact-info-label">Disponibilité</div>
+              <div class="contact-info-value">Lundi – Vendredi, 9h – 18h</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in contact-form" style="transition-delay: 0.15s">
+        <div id="contactFormContent">
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--rouge-fonce); margin-bottom: 0.4rem;">Envoyer un message</h3>
+          <p style="font-size: 0.85rem; color: var(--texte-doux); margin-bottom: 1.5rem">Que vous soyez bénéficiaire, donateur ou partenaire potentiel.</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Prénom</label>
+              <input type="text" placeholder="Marie">
+            </div>
+            <div class="form-group">
+              <label>Nom</label>
+              <input type="text" placeholder="Dupont">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="marie.dupont@email.fr">
+          </div>
+          <div class="form-group">
+            <label>Vous êtes…</label>
+            <select>
+              <option value="">Sélectionner...</option>
+              <option>Un particulier en besoin d'aide</option>
+              <option>Un travailleur social / référent</option>
+              <option>Un artisan souhaitant s'engager</option>
+              <option>Un donateur / mécène</option>
+              <option>Un partenaire institutionnel</option>
+              <option>Un journaliste / média</option>
+              <option>Autre</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Votre message</label>
+            <textarea placeholder="Décrivez votre situation ou votre demande..." style="min-height: 120px;"></textarea>
+          </div>
+          <button class="form-submit" onclick="submitContact()">Envoyer le message →</button>
+        </div>
+        <div class="form-success" id="contactSuccess">
+          <span class="form-success-icon">✅</span>
+          <h3>Message envoyé !</h3>
+          <p>Merci de nous avoir contactés. Nous vous répondrons dans les 48 heures.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-logo-area">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="width: 36px; height: 36px; background: var(--rouge); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px;">❤️</div>
+          <div class="footer-logo-name">Artisans du Cœur</div>
+        </div>
+        <p class="footer-logo-tagline">Une association de solidarité dans le bâtiment, pour que chacun puisse vivre dans un logement sûr, sain et digne.</p>
+        <p style="font-size: 0.75rem; color: rgba(255,255,255,0.3); font-style: italic;">Association loi 1901 • En cours de création</p>
+      </div>
+      <div>
+        <div class="footer-col-title">L'association</div>
+        <ul class="footer-links">
+          <li><a href="#mission">Notre mission</a></li>
+          <li><a href="#mission">Nos valeurs</a></li>
+          <li><a href="#fonctionnement">Comment ça marche</a></li>
+          <li><a href="#contact">Nous rejoindre</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Agir</div>
+        <ul class="footer-links">
+          <li><a href="#dons">Faire un don</a></li>
+          <li><a href="#artisans">Devenir artisan</a></li>
+          <li><a href="#contact">Signaler un besoin</a></li>
+          <li><a href="#contact">Devenir partenaire</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Informations</div>
+        <ul class="footer-links">
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#">Mentions légales</a></li>
+          <li><a href="#">Politique de confidentialité</a></li>
+          <li><a href="#">Comptes annuels</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Artisans du Cœur — Association loi 1901</span>
+      <span class="footer-cross">✝ Servir avec amour</span>
+    </div>
+  </div>
+</footer>
+
+<a href="#accueil" class="back-to-top" id="backToTop">↑</a>
+
+<script>
+  // Scroll progress
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = (scrollTop / docHeight) * 100;
+    document.getElementById('scrollProgress').style.width = progress + '%';
+
+    const btt = document.getElementById('backToTop');
+    if (scrollTop > 400) btt.classList.add('visible');
+    else btt.classList.remove('visible');
+  });
+
+  // Fade-in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Montant selection
+  let selectedMontant = 20;
+  function selectMontant(card, montant) {
+    document.querySelectorAll('.montant-card').forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+    selectedMontant = montant;
+    if (montant > 0) document.getElementById('montantLibre').value = montant;
+    else document.getElementById('montantLibre').value = '';
+    document.getElementById('montantLibre').focus();
+  }
+
+  function faireDon() {
+    const val = document.getElementById('montantLibre').value || selectedMontant;
+    if (!val || val <= 0) { alert('Veuillez entrer un montant.'); return; }
+    alert('Merci pour votre don de ' + val + ' € !\n\nLe système de paiement en ligne sera disponible lors de l\'ouverture officielle de l\'association.');
+  }
+
+  // Form submissions
+  function submitArtisan() {
+    document.getElementById('artisanFormContent').style.display = 'none';
+    document.getElementById('artisanSuccess').style.display = 'block';
+  }
+
+  function submitContact() {
+    document.getElementById('contactFormContent').style.display = 'none';
+    document.getElementById('contactSuccess').style.display = 'block';
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    if (links.style.display === 'flex') {
+      links.style.display = 'none';
+    } else {
+      links.style.cssText = `
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: rgba(253,250,245,0.98);
+        padding: 1.5rem 2rem 2rem;
+        gap: 0.5rem;
+        border-bottom: 1px solid rgba(200,150,60,0.25);
+        box-shadow: 0 8px 30px rgba(100,30,10,0.1);
+        z-index: 999;
+      `;
+    }
+  }
+
+  // Close mobile menu on link click
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      if (window.innerWidth <= 900) links.style.display = 'none';
+    });
+  });
+</script>
+</body>
+</html>
